@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>para mi señorita Cristina :3</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f8d7da;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+
+        h1 {
+            color: #d63384;
+            margin-bottom: 20px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .yes-btn {
+            background-color: #28a745;
+            color: white;
+            font-size: 20px;
+            padding: 15px 30px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .no-btn {
+            background-color: #dc3545;
+            color: white;
+            font-size: 16px;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+    </style>
+</head>
+<body>
+    <h1>quieres ser mi san Valentín?</h1>
+    <div class="buttons">
+        <button class="yes-btn" id="yesBtn">si?🥺</button>
+        <button class="no-btn" id="noBtn">no :(</button>
+    </div>
+
+    <script>
+        let yesBtn = document.getElementById("yesBtn");
+        let noBtn = document.getElementById("noBtn");
+        let yesSize = 20; // Tamaño inicial del botón "Sí"
+        let noWidth = 100; // Ancho inicial del botón "No"
+        let noHeight = 40; // Alto inicial del botón "No"
+
+        noBtn.addEventListener("click", function() {
+            yesSize += 10; // Aumenta el tamaño del botón "Sí"
+            yesBtn.style.fontSize = yesSize + "px";
+            yesBtn.style.padding = (yesSize / 2) + "px " + (yesSize) + "px";
+
+            // Reduce proporcionalmente el tamaño del botón "No"
+            noWidth *= 0.8;
+            noHeight *= 0.8;
+            noBtn.style.width = noWidth + "px";
+            noBtn.style.height = noHeight + "px";
+            noBtn.style.fontSize = (parseInt(window.getComputedStyle(noBtn).fontSize) * 0.8) + "px";
+
+            // Si el botón "No" es demasiado pequeño, ocultarlo
+            if (noWidth < 20 || noHeight < 10) {
+                noBtn.style.display = "none";
+            }
+        });
+
+        yesBtn.addEventListener("click", function() {
+            alert("¡Sabía que dirías que sí! ❤️");
+        });
+    </script>
+</body>
+</html>
